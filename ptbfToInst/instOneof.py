@@ -1,14 +1,16 @@
-from protoInstruction import ProtoInstruction
+from ptbfToInst.protoInstruction import ProtoInstruction
 
 class InstOneof(ProtoInstruction):
     def __init__(self, data):
         super().__init__(data)
 
-        self.__isOneof = True
-        self.__hasBlockStart = True
-
         splitData = self.data.split(' ')
-        self.__name = splitData[1]
+        self.__oneofName = splitData[1]
 
-    def name(self):
-        return self.__name
+    def isOneof(self):
+        return True
+    def hasBlockStart(self):
+        return True
+
+    def oneofName(self):
+        return self.__oneofName

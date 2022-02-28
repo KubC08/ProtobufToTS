@@ -1,10 +1,8 @@
-from protoInstruction import ProtoInstruction
+from ptbfToInst.protoInstruction import ProtoInstruction
 
 class InstVariableDef(ProtoInstruction):
     def __init__(self, data):
         super().__init__(data)
-
-        self.__isVariableDef = True
 
         sections = self.data.split('=')
         sections[0] = sections[0].strip()
@@ -23,6 +21,9 @@ class InstVariableDef(ProtoInstruction):
                 self.__isRequired = True
             elif attribParts[0] == 'repeated':
                 self.__isRepeated = True
+
+    def isVariableDef(self):
+        return True
 
     def varName(self):
         return self.__varName

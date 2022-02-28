@@ -1,7 +1,8 @@
-from protoInstruction import ProtoInstruction
+from ptbfToInst.protoInstruction import ProtoInstruction
 
 class InstExtension(ProtoInstruction):
     def __init__(self, data):
         super().__init__(data)
 
-        self.__isExtension = True
+    def isExtension(self):
+        return True

@@ -49,8 +49,8 @@ def GetInstructionsFromProtobuf(protoData):
         if currentInstruction.isBlockEnd():
             isInEnum = False
 
+        instructions.append(currentInstruction)
         if currentInstruction.hasBlockStart():
             instructions.append(instBlockStart.InstBlockStart(cleanLine))
-        instructions.append(currentInstruction)
 
     return instructions

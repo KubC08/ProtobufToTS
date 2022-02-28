@@ -1,14 +1,16 @@
-from protoInstruction import ProtoInstruction
+from ptbfToInst.protoInstruction import ProtoInstruction
 
 class InstEnum(ProtoInstruction):
     def __init__(self, data):
         super().__init__(data)
 
-        self.__isEnum = True
-        self.__hasBlockStart = True
-
         splitData = self.data.split(' ')
         self.__enumName = splitData[1]
+
+    def isEnum(self):
+        return True
+    def hasBlockStart(self):
+        return True
 
     def enumName(self):
         return self.__enumName
