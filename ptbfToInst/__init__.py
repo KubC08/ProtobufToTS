@@ -18,9 +18,11 @@ def GetInstructionsFromProtobuf(protoData):
         cleanLine = line.strip()
         currentInstruction = None
 
-        if len(cleanLine) < 1:
-            continue
+        #if len(cleanLine) < 1:
+            #continue
 
+        if len(cleanLine) < 1:
+            currentInstruction = ProtoInstruction(cleanLine)
         if cleanLine.startswith('oneof '):
             currentInstruction = instOneof.InstOneof(cleanLine)
         elif cleanLine.startswith('message '):
